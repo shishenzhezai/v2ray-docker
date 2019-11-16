@@ -5,9 +5,5 @@ v2ray deploy by docker
 ## GetStarted
 
 ```
-$ ./init-letsencrypt.sh
-$ docker-compose up -d
+$ ./init-v2ray.sh
 ```
-
-## Additional
-- 
