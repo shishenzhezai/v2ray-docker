@@ -8,3 +8,6 @@ v2ray deploy by docker
 $ ./init-letsencrypt.sh
 $ docker-compose up -d
 ```
+
+## Additional
+- 
