@@ -1,7 +1,7 @@
 version: "3"
 services:
   v2ray:
-    image: v2ray/official:2.34
+    image: v2ray/official
     container_name: v2ray
     volumes:
       - ./v2ray/config.json:/etc/v2ray/config.json
@@ -28,9 +28,10 @@ services:
       - "v2ray"
     command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
   certbot:
-    image: certbot/certbot:0.40.1
+    image: certbot/certbot
     restart: unless-stopped
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
+      - ./certbot/log:/var/log/letsencrypt
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
