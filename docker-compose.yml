@@ -1,16 +1,19 @@
-version: "3.7"
+version: "3"
 services:
   v2ray:
-    image: v2ray/official
+    image: v2ray/official:2.34
     container_name: v2ray
     volumes:
       - ./v2ray/config.json:/etc/v2ray/config.json
       - ./v2ray/log:/var/log/v2ray
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
     expose:
       - "10086"
-    restart: unless-stopped
   nginx:
-    image: nginx:stable-alpine
+    image: nginx:1.17.5
+    container_name: v2ray_nginx
     restart: unless-stopped
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
@@ -18,15 +21,14 @@ services:
       - /usr/share/nginx/html
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    container_name: v2ray_nginx
     ports:
       - "80:80"
       - "443:443"
     links:
-      - v2ray:v2ray
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+      - "v2ray"
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
   certbot:
-    image: certbot/certbot
+    image: certbot/certbot:0.40.1
     restart: unless-stopped
     volumes:
       - ./certbot/conf:/etc/letsencrypt
