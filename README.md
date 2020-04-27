@@ -15,7 +15,7 @@ v2ray deploy by docker
 	$ ./init-v2ray.sh
 	```
 
-## Test 
+## Speed Test 
 
 ```bash
 # abroad
