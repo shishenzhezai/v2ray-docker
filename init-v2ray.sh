@@ -18,3 +18,10 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ./init-letsencrypt.sh
 
 docker-compose up -d
+
+# BBR install
+wget –no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
+
+chmod +x bbr.sh
+
+./bbr.sh

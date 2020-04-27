@@ -14,3 +14,13 @@ v2ray deploy by docker
 	$ chmod +x ./*.sh
 	$ ./init-v2ray.sh
 	```
+
+## Test 
+
+```bash
+# abroad
+$ wget -qO- bench.sh | bash
+
+# home
+$ wget -qO- git.io/superbench.sh | bash
+```
