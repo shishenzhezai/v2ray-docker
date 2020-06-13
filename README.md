@@ -3,6 +3,8 @@ v2ray deploy by docker
 
 ## GetStarted
 
+Notice: `CentOS 7 x64`
+
 1. replace ray.me,xxx@gmail.com with your domain name,email
 2. setting your clients id on v2ray/config.json  
 2. add dns a record vps ip on site
