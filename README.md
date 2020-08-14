@@ -15,8 +15,12 @@ Notice: `CentOS 7 x64`
 	```bash
 	$ chmod +x ./*.sh
 	$ ./init-v2ray.sh
+	
+		
+	# Pay attention to time zone
+	$ timedatectl set-timezone Asia/Shanghai
+	
 	```
-
 ## Speed Test 
 
 ```bash
